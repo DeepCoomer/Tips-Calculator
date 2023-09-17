@@ -120,8 +120,8 @@ const calculateTip = (billAmount, selectedTip, numberOfPeople) => {
   const amountPerPerson = totalAmount / numberOfPeople;
 
   document.getElementById("amountPerPerson").innerText =
-    amountPerPerson.toFixed(2);
-  document.getElementById("tipPerPerson").innerText = tipPerPerson.toFixed(2);
+    `$${amountPerPerson.toFixed(2)}`;
+  document.getElementById("tipPerPerson").innerText = `$${tipPerPerson.toFixed(2)}`;
 };
 
 const handleReset = () => {
@@ -131,8 +131,8 @@ const handleReset = () => {
     selectedTipLabel.style.backgroundColor = "";
   }
   noOfPeopleInput.value = "";
-  document.getElementById("amountPerPerson").innerText = "0.00";
-  document.getElementById("tipPerPerson").innerText = "0.00";
+  document.getElementById("amountPerPerson").innerText = "$0.00";
+  document.getElementById("tipPerPerson").innerText = "$0.00";
   document.getElementById("bill-error").classList.remove("error-active");
   document.getElementById("tip-error").classList.remove("error-active");
   document
