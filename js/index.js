@@ -34,9 +34,9 @@ billInput.addEventListener("input", () => {
   if (noOfPeopleInput.value == 0) {
     return;
   }
-  if (selectedTip == 0) {
-    return;
-  }
+//   if (selectedTip == 0) {
+//     return;
+//   }
 
   // console.log("Bill Amount")
   calculateTip(billInput.value, selectedTip, noOfPeopleInput.value);
@@ -59,9 +59,9 @@ const setLabel = (label) => {
   if (noOfPeopleInput.value == 0) {
     return;
   }
-  if (selectedTip == 0) {
-    return;
-  }
+//   if (selectedTip == 0) {
+//     return;
+//   }
 
   calculateTip(billInput.value, selectedTip, noOfPeopleInput.value);
 };
@@ -81,9 +81,9 @@ tipCustomInput.addEventListener("input", () => {
   if (noOfPeopleInput.value == 0) {
     return;
   }
-  if (selectedTip == 0) {
-    return;
-  }
+//   if (selectedTip == 0) {
+//     return;
+//   }
 
   calculateTip(billInput.value, selectedTip, noOfPeopleInput.value);
 });
@@ -93,9 +93,9 @@ noOfPeopleInput.addEventListener("input", function () {
   if (billInput.value == 0) {
     return;
   }
-  if (selectedTip == 0) {
-    return;
-  }
+//   if (selectedTip == 0) {
+//     return;
+//   }
   if (this.value.trim() !== "") {
     billAmount = document.getElementById("bill").value;
     selectedTip = selectedTipButton ? selectedTipButton.value : "";
@@ -119,18 +119,23 @@ const calculateTip = (billAmount, selectedTip, numberOfPeople) => {
   const totalAmount = parseFloat(billAmount) + totalTip;
   const amountPerPerson = totalAmount / numberOfPeople;
 
-  document.getElementById("amountPerPerson").innerText =
-    `$${amountPerPerson.toFixed(2)}`;
-  document.getElementById("tipPerPerson").innerText = `$${tipPerPerson.toFixed(2)}`;
+  document.getElementById(
+    "amountPerPerson"
+  ).innerText = `$${amountPerPerson.toFixed(2)}`;
+  document.getElementById("tipPerPerson").innerText = `$${tipPerPerson.toFixed(
+    2
+  )}`;
 };
 
 const handleReset = () => {
   billInput.value = "";
+  noOfPeopleInput.value = "";
+  tipCustomInput.value = "";
   selectedTip = 0;
   if (selectedTipLabel.style.backgroundColor) {
     selectedTipLabel.style.backgroundColor = "";
   }
-  noOfPeopleInput.value = "";
+
   document.getElementById("amountPerPerson").innerText = "$0.00";
   document.getElementById("tipPerPerson").innerText = "$0.00";
   document.getElementById("bill-error").classList.remove("error-active");
@@ -221,13 +226,7 @@ const validateInput = (input, inputType) => {
         selectedTipContainer.classList.remove("tab-input-container");
         selectedTipContainer.classList.add("tab-error-container");
         throw new Error("Invalid Input");
-      } else if (parseFloat(input) == 0) {
-        selectedTipElement.innerText = "Can't be 0";
-        selectedTipElement.classList.add("error-active");
-        selectedTipContainer.classList.remove("tab-input-container");
-        selectedTipContainer.classList.add("tab-error-container");
-        throw new Error("Invalid Input");
-      } else if (regexString.match(input)) {
+      } else if ("^-?\d+(\.\d+)?$".match(input)) {
         selectedTipElement.innerText = "Invalid input";
         selectedTipElement.classList.add("error-active");
         selectedTipContainer.classList.remove("tab-input-container");
