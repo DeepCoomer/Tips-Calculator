@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Tip calculator app</title>
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <!-- <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style> -->
+</head>
+
+<body>
+  <div class="logo">
+    <img src="./images/logo.svg" alt="" srcset="">
+  </div>
+
+  <div class="tips-container">
+    <div class="tips-card">
+      <div class="formSection">
+        <form class="tip-calc-form">
+          <div style="display: flex; justify-content: space-between;">
+            <label for="Bill" class="form-label">Bill</label>
+            <label for="bill" id="bill-error" class="error bill-error">Invalid Input</label>
+          </div>
+          <div class="input-container" id="bill-container">
+            <img src="./images/icon-dollar.svg" class="dollar-icon" alt="" srcset="">
+            <input type="number" inputmode="numeric" name="bill" id="bill" class="input-field bill-field"
+              placeholder="0" min="0.01" step="0.01">
+          </div>
+          <br><br>
+          <div style="display: flex; justify-content: space-between;">
+            <label for="Select Tip" class="form-label">Select Tip %</label>
+            <label for="tip" id="tip-error" class="error tip-error">Invalid Input</label>
+          </div>
+          <div class="tabs">
+
+            <label class="tip-tab" onclick="setLabel(5)">
+              <input type="radio" name="tip" id="tip-5" value="5" class="tab-input-hidden tip-button" />
+              5%</label>
+
+            <label class="tip-tab" onclick="setLabel(10)"><input type="radio" name="tip" id="tip-10" value="10"
+                class="tab-input-hidden tip-button" />10%</label>
+
+            <label class="tip-tab" onclick="setLabel(15)"><input type="radio" name="tip" id="tip-15" value="15"
+                class="tab-input-hidden tip-button" />15%</label>
+
+            <label class="tip-tab" onclick="setLabel(25)"><input type="radio" name="tip" id="tip-25" value="25"
+                class="tab-input-hidden tip-button" />25%</label>
+
+            <label class="tip-tab" onclick="setLabel(50)"> <input type="radio" name="tip" id="tip-50" value="50"
+                class="tab-input-hidden tip-button" />50%</label>
+
+            <div class="tab-input-container" id="selected-tip-container">
+              <input type="number" inputmode="numeric" name="tip-custom" id="tip-custom" placeholder="Custom" min="0"
+                step="1" class="tab-input custom-tip">
+            </div>
+          </div>
+          <br>
+          <div style="display: flex; justify-content: space-between;">
+            <label for="No of People" class="form-label">Number of People</label>
+            <label for="No of People" id="no-of-people-error" class="error no-of-people-error">Invalid Input</label>
+          </div>
+          <div class="input-container" id="people-container">
+            <img src="./images/icon-person.svg" alt="" srcset="" class="person-icon">
+            <input type="number" inputmode="numeric" min="0" step="1" name="no-of-people" id="no-of-people"
+              class="input-field people-field" placeholder="0">
+          </div>
+        </form>
+      </div>
+      <div class="amountSection">
+        <div class="tip-amount-info">
+          <div>
+            Tip Amount <br>
+            <small style="color: grey;">/person</small>
+          </div>
+          <div class="amount" id="tipPerPerson">
+            $0.00
+          </div>
+        </div>
+        <div class="tip-amount-lastSection">
+          <div class="total-amount-info">
+            <div style="color: white;
+          font-size: 12px;">
+              Total <br>
+              <small style="color: grey;">/person</small>
+            </div>
+            <div class="amount" id="amountPerPerson">
+              $0.00
+            </div>
+          </div>
+          <button type="submit" class="reset-btn" onclick="handleReset()">RESET</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
