@@ -266,9 +266,6 @@ input[type="number"] {
 }
 
 .error {
-  /* position: absolute;
-  left: 30vw;
-  right: 0; */
   color: red;
   opacity: 0;
   translate: 0 100%;

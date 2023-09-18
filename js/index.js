@@ -5,12 +5,18 @@ const tipCustomInput = document.getElementById("tip-custom");
 const tipButtons = document.querySelectorAll('input[name="tip"]');
 const tipLabels = document.querySelectorAll(".tip-tab");
 
+const resetbtn = document.getElementById('reset-btn');
+
 let billAmount = 0;
 let selectedTip = 0;
 let customTip = 0;
 
 let selectedTipButton = null;
 let selectedTipLabel = null;
+
+if (billInput.value == "" && noOfPeopleInput.value == "" && selectedTip == 0 && tipCustomInput.value == "") {
+  resetbtn.disabled = true
+}
 
 tipButtons.forEach((tipButton, index) => {
   tipButton.addEventListener("click", () => {
